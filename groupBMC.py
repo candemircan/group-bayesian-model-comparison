@@ -141,7 +141,7 @@ class GroupBMC:
     
     def get_result(self) -> GroupBMCResult:
         """ Get various statistics of the posterior Dirichlet distribution on model frequencies. """
-        bor: float = 1 / (1 + exp(self.F1() - self.F0()))
+        bor: float = expit(self.F0() - self.F1())
         if self.families.size == 0:
             return GroupBMCResult(self.α.flatten(), self.z, bor)
         return GroupBMCResult(self.families.T @ self.α.flatten(), self.families.T @ self.z, bor)
