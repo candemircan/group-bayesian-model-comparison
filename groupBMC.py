@@ -59,6 +59,8 @@ def exceedance_probability(distribution: rv_continuous, n_samples: Optional[int]
                         φ_i *= gammainc(α[j], x)
                 return φ_i * exp((α[i] - 1) * log(x) - x - γ[i])
             φ = [integrate.quad(lambda x: f(x, i), 0, np.inf)[0] for i in range(n)]
+            if sum(φ) == 0:
+                return exceedance_probability(distribution, n_samples=1000000)
         else:
             raise NotImplementedError('Numerical integration not implemented for this distribution!')
         φ = np.array(φ)
