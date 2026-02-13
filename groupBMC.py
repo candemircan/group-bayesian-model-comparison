@@ -11,6 +11,7 @@ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2703732/pdf/ukmss-5226.pdf.
 __author__ = 'Sichao Yang'
 __contact__ = 'sichao@cs.wisc.edu'
 __license__ = 'MIT'
+__version__ = '1.0.1'
 
 
 from typing import List, Optional
